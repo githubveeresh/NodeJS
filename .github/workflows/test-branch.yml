@@ -1,0 +1,33 @@
+name: Test Branch Workflow
+
+# 1. Define when the workflow runs
+on:
+  push:
+    branches:
+      - test  # Triggers on every push to the 'test' branch
+  pull_request:
+    branches:
+      - test  # Triggers when a PR is opened against 'test'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 2. Check out your code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 3. Set up your environment (Example: Node.js)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 5. Run your test suite
+      - name: Run tests
+        run: npm test
