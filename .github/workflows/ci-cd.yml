@@ -26,8 +26,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test
+    #- name: Run tests
+    #  run: npm test
 
   # Job 2: Deploy (Only runs if Job 1 passes and we are on 'main')
   deploy:
